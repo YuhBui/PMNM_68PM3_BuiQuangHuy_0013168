@@ -5,7 +5,7 @@
     <title>Danh sách sinh viên</title>
 </head>
 <body>
-    <h2>Danh sách sinh viên</h2>
+    <h1>Danh sách sinh viên</h2>
     <table border="1" cellpadding="10" cellspacing="0">
         <tr>
             <th>Họ và Tên</th>
@@ -13,20 +13,15 @@
             <th>Giới Tính</th>
         </tr>
         
-        <?php if (!empty($dssinhvien)): ?>
-            <?php foreach ($dssinhvien as $sv): ?>
+        <?php foreach ($sinhviens as $index => $sinhvien): ?>
             <tr>
-                <td><?php echo htmlspecialchars($sv->hoten); ?></td>
-                <td><?php echo htmlspecialchars($sv->mssv); ?></td>
-                <td><?php echo htmlspecialchars($sv->gioitinh); ?></td>
+                <td><?php echo $index + 1; ?></td>
+                <td><?php echo $sinhvien['hoten']; ?></td>
+                <td><?php echo $sinhvien['mssv']; ?></td>
+                <td><?php echo $sinhvien['gioitinh']; ?></td>
             </tr>
-            <?php endforeach; ?>
-        <?php else: ?>
-            <tr>
-                <td colspan="3" style="text-align: center;">Chưa có dữ liệu</td>
-            </tr>
-        <?php endif; ?>
-        
+        <?php endforeach; ?>
+        ?>
     </table>
 </body>
 </html>
