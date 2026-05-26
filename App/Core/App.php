@@ -13,12 +13,12 @@ class App
         $urlProcessed = $this->UrlProcess();  //mảng url đã được xử lý
         //var_dump($urlProcessed);
         if (isset($urlProcessed[0])) {
-            if (file_exists('../app/controllers/' . $urlProcessed[0] . '.php')) {
+            if (file_exists('../App/Controllers/' . $urlProcessed[0] . '.php')) {
                 $this->controller = $urlProcessed[0];
                 unset($urlProcessed[0]);
             }
         }
-        require_once '../app/controllers/' . $this->controller . '.php';
+        require_once '../App/Controllers/' . $this->controller . '.php';
         $this->controller = new $this->controller; //tạo đối tượng controller
         if (isset($urlProcessed[1])) {
             if (method_exists($this->controller, $urlProcessed[1])) {

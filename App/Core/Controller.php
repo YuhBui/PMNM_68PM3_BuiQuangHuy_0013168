@@ -5,7 +5,8 @@ class Controller {
         return new $model();
     }
     public function view ($view, $data = []) {
-        require_once "../App/Views/" . $viewName . ".php";
+        extract($data);
+        require_once "../App/Views/" . $view . ".php";
     }
 }
 ?>

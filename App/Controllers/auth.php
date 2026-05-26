@@ -1,10 +1,12 @@
 <?php
-    class auth {
+    class auth{
         protected $user = [
             'admin' => '123456',
             'yuhbui' => '123456'
         ];
         public function login() {
+            session_start();
+            
             if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] === 'POST') {
                 $username = $_POST['username'] ?? '';
                 $password = $_POST['password'] ?? '';

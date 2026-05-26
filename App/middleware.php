@@ -1,6 +1,10 @@
 <?php
     require_once '../App/Core/App.php';
-    session_start();
+    
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
+    
     class middleware {
         function checklogin() {
             $publicPages = ['/home/login', '/auth/login'];
