@@ -4,9 +4,9 @@ class Controller {
         require_once "../App/Models/" . $model . ".php";
         return new $model();
     }
-    public function view ($view, $data = []) {
+    public function view ($viewName, $data = []) {
         extract($data);
-        require_once "../App/Views/" . $view . ".php";
+        require_once "../App/Views/" . $viewName . ".php";
     }
 }
 ?>
