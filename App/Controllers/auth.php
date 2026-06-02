@@ -12,7 +12,7 @@
                 $password = $_POST['password'] ?? '';
                 if (isset($this->user[$username]) && $this->user[$username] === $password) {
                     $_SESSION['username'] = $username;
-                    header('Location: /home/index');
+                    header('Location: /sinhvien/index');
                     exit();
                 } else {
                     header('Location: /home/login');
