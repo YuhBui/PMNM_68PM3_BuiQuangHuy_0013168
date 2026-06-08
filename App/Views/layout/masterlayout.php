@@ -10,7 +10,8 @@
             padding: 0;
         }
         .content {
-            
+            width: 60%;
+            margin: auto;
         }
     </style>
 </head>
@@ -18,7 +19,11 @@
     <div><?php require_once '../App/Views/layout/partial/header.php'; ?></div>
     <div class="content">
         <?php
-            require_once '../App/Views/' . $viewName . '.php'; 
+            if (isset($viewName) && is_string($viewName)) {
+                require_once '../App/Views/' . $viewName . '.php';
+            } else {
+                echo '<p>View không được xác định.</p>';
+            }
         ?>
     </div>
     <div><?php require_once '../App/Views/layout/partial/footer.php'; ?></div>

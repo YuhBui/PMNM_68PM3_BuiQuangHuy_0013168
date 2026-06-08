@@ -4,9 +4,7 @@
             'admin' => '123456',
             'yuhbui' => '123456'
         ];
-        public function login() {
-            session_start();
-            
+        public function login() {     
             if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] === 'POST') {
                 $username = $_POST['username'] ?? '';
                 $password = $_POST['password'] ?? '';
@@ -19,14 +17,6 @@
                     exit();
                 }
             }
-        }
-
-            public function logout() {
-            session_unset(); 
-            session_destroy(); 
-            
-            header('Location: /home/login');
-            exit();
         }
     }
 ?>

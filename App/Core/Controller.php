@@ -9,4 +9,3 @@ class Controller {
         require_once "../App/Views/" . $viewName . ".php";
     }
 }
-?>
