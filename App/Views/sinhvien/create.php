@@ -6,6 +6,15 @@
     <title>Document</title>
 </head>
 <body>
-    <h2> Đây là trang tạo sinh viên</h2>
+    <h1> Thêm sinh viên</h1>
+    <form action="/sinhvien/create" method="POST">
+        <label for="hoten">Họ tên:</label>
+        <input type="text" id="hoten" name="hoten" required>
+        <label for="tuoi">Giới tính:</label>
+        <input type="number" id="gioitinh" name="gioitinh" required>
+        <label for="mssv">MSSV:</label>
+        <input type="text" id="mssv" name="mssv" required>
+        <button type="submit">Thêm sinh viên</button>
+    </form>
 </body>
 </html>
