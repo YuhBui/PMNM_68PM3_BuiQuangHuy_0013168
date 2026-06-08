@@ -1,15 +1,14 @@
 <?php
-class home 
+require_once "../App/Core/Controller.php";
+
+class home extends Controller
 {
-    public function index()
-    {
-        //require_once '../App/Views/home/index.php';
-        require_once '../App/Views/layout/masterlayout.php';
+    public function index() {
+        $this->view("layout/masterlayout", ['viewName' => 'home/index']);
     }
 
-    public function login()
-    {
-        require_once '../App/Views/home/login.php';
+    public function login() {   
+        $this->view("home/login");
     }
 }
 ?>
