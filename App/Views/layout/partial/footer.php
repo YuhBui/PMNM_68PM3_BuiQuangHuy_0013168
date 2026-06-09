@@ -9,7 +9,7 @@
     .footer {
       height: 80px;
       width: 100%;
-      background-color: blue;
+      background-color: #051525;
       position: fixed;
       bottom: 0;
     }

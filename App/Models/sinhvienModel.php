@@ -24,5 +24,22 @@ class sinhvienModel {
             return false;
         }
     }
+    public function paging($limit = 5, $offset = 0, $search = "")
+  {
+    $query = "SELECT * FROM sinhvien LIMIT :limit OFFSET :offset";
+    $stmt = $this->conn->prepare($query);
+    $stmt->bindParam(':limit', $limit, PDO::PARAM_INT);
+    $stmt->bindParam(':offset', $offset, PDO::PARAM_INT);
+    $stmt->execute();
+    $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    // Tính tổng số bảng ghi
+    $selectAllQuery = $this->conn->query("SELECT COUNT(*) FROM sinhvien");
+    $totalRecords = $selectAllQuery->fetchColumn();
+
+    $totalPages = ceil($totalRecords / $limit);
+
+    return ['sinhviens' => $result, 'totalPages' => $totalPages];
+  }
 }
 ?>

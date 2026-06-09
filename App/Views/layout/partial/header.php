@@ -9,7 +9,7 @@
     .header {
       height: 80px;
       width: 100%;
-      background-color: red;
+      background-color: #051525;
     }
   </style>
 </head>
