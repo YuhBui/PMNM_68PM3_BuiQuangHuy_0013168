@@ -10,14 +10,16 @@
       height: 80px;
       width: 100%;
       background-color: #051525;
-      position: fixed;
-      bottom: 0;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
   </style>
 </head>
 
 <body>
-  <div class="footer">Đây là footer</div>
+  <div class="footer">2026 Hệ thống quản lý sinh viên  - PMNM_68PM3_QLSV</div>
 </body>
 
 </html>

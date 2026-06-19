@@ -8,7 +8,7 @@
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
         margin: 0 auto;
     }
-    
+
     h1 {
         font-size: 28px;
         color: #2c3e50;
@@ -27,32 +27,36 @@
         background-color: #3498db;
         border-radius: 2px;
     }
-    
+
     .form-group {
         margin-bottom: 20px;
     }
-    
+
     label {
         display: block;
         font-weight: 600;
         margin-bottom: 8px;
         color: #333;
     }
-    
-    input[type="text"], input[type="number"], select {
+
+    input[type="text"],
+    input[type="number"],
+    select {
         width: 100%;
         padding: 10px 15px;
         border: 1px solid #ccc;
         border-radius: 5px;
         font-size: 16px;
     }
-    
-    input[type="text"]:focus, input[type="number"]:focus, select:focus {
+
+    input[type="text"]:focus,
+    input[type="number"]:focus,
+    select:focus {
         border-color: #3498db;
         outline: none;
         box-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
     }
-    
+
     .btn-submit {
         background-color: #f39c12;
         color: white;
@@ -64,18 +68,18 @@
         transition: background-color 0.2s;
         width: 100%;
     }
-    
+
     .btn-submit:hover {
         background-color: #d68910;
     }
-    
+
     .btn-back {
         display: inline-block;
         margin-top: 15px;
         color: #7f8c8d;
         text-decoration: none;
     }
-    
+
     .btn-back:hover {
         text-decoration: underline;
     }
@@ -88,7 +92,7 @@
             <label for="hoten">Họ tên:</label>
             <input type="text" id="hoten" name="hoten" value="<?php echo htmlspecialchars($sinhvien['hoten'] ?? ''); ?>" required>
         </div>
-        
+
         <div class="form-group">
             <label>Giới tính:</label>
             <div class="radio-group" style="padding: 10px 0;">
@@ -100,12 +104,26 @@
                 </label>
             </div>
         </div>
-        
+
+        <div class="form-group">
+            <label for="malop">Lớp học:</label>
+            <select id="malop" name="malop" required>
+                <option value="" disabled <?php echo empty($sinhvien['malop']) ? 'selected' : ''; ?>>Chọn lớp học</option>
+                <?php if (!empty($lops)): ?>
+                    <?php foreach ($lops as $lop): ?>
+                        <option value="<?php echo htmlspecialchars($lop['malop']); ?>" <?php echo (isset($sinhvien['malop']) && $sinhvien['malop'] == $lop['malop']) ? 'selected' : ''; ?>>
+                            <?php echo htmlspecialchars($lop['tenlop']); ?>
+                        </option>
+                    <?php endforeach; ?>
+                <?php endif; ?>
+            </select>
+        </div>
+
         <div class="form-group">
             <label for="mssv">MSSV:</label>
             <input type="text" id="mssv" name="mssv" value="<?php echo htmlspecialchars($sinhvien['mssv'] ?? ''); ?>" required>
         </div>
-        
+
         <button type="submit" class="btn-submit">Cập nhật sinh viên</button>
     </form>
     <a href="/sinhvien/index" class="btn-back">&larr; Quay lại danh sách</a>

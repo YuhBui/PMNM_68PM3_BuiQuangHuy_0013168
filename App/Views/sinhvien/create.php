@@ -105,6 +105,20 @@
             </select>
         </div>
 
+        <div class="form-group">
+            <label for="malop">Lớp học:</label>
+            <select id="malop" name="malop" required>
+                <option value="" disabled selected>Chọn lớp học</option>
+                <?php if (!empty($lops)): ?>
+                    <?php foreach ($lops as $lop): ?>
+                        <option value="<?php echo htmlspecialchars($lop['malop']); ?>">
+                            <?php echo htmlspecialchars($lop['tenlop']); ?>
+                        </option>
+                    <?php endforeach; ?>
+                <?php endif; ?>
+            </select>
+        </div>
+
         <button type="submit" class="btn-submit">Thêm sinh viên</button>
     </form>
     <a href="/sinhvien/index" class="btn-back">&larr; Quay lại danh sách</a>

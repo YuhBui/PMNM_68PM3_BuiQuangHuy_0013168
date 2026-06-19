@@ -5,13 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        * {
+        html, body {
+            height: 100%;
             margin: 0;
             padding: 0;
         }
+        body {
+            display: flex;
+            flex-direction: column;
+        }
         .content {
             width: 60%;
-            margin: auto;
+            margin: 20px auto;
+            flex: 1; 
         }
     </style>
 </head>
